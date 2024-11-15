@@ -1,0 +1,205 @@
+---
+title: "R language cheatsheet"
+author: "Geo. Naumov"
+date: "2024-11-15"
+output: pdf_document
+---
+
+# R language cheatsheet
+
+## Basic calculator
+```{r}
+10 / 2
+11 / 2.1
+6 * 7
+(15 + 12) / ( 19 - 12)
+factorial(10)
+6 ^ 2
+x <- 3
+4 -> y
+z <- x*y
+print(z)
+```
+
+## Output
+```{r}
+print(z)
+print("Hello from R")
+
+hello_str <- "Hello from R"
+print(hello_str)
+```
+
+## Comparing variables
+```{r}
+result1 <- x<y
+result2 <- x>y
+result3 <- x==y
+```
+
+## Vectorized programming language
+```{r}
+typeof(z)
+length(z)
+
+typeof(hello_str)
+length(hello_str)
+
+```
+
+### Combine collections as vectors
+
+DUE TO THIS, A VARIABLE CCANNOT BE CALLED c BECAUSE THAT WILL OVERWRITE THE 
+COLLECTION FUNCTION!!!
+
+```{r}
+
+# Create a vector using a collection 
+col1 <- c(3,5,6,7)
+typeof(col1)
+length(col1)
+
+col2 <- c("Hello", "man")
+typeof(col2)
+length(col2)
+
+# Access vector items
+col2[1]
+col1[2]
+col1[1:3]
+```
+
+### Operation between vectors
+Vectors must be of same size!
+```{r}
+vec1 <- c(3,5,6,7)
+vec2 <- c(2,4,8,9)
+vec3 <- vec1 * vec2
+vec4 <- vec1 + vec2
+```
+A single item vector can also be applied to a larger vector. 
+
+In this case, it will be appended n-times by the same value in order to become 
+as long as the vector we are operating on. Then all values are calculated as in 
+the previous example.
+
+The example below multiplies everything in vec1 by 2, result is vector of same
+size as vec1
+```{r}
+vec5 <- vec1 * 2 
+```
+
+## Data types
+
+### Vector data types
+  Integers - Numbers
+  Doubles - Numbers with a fraction associated with it
+  Characters - Text, strings
+  Logicals - Booleans true/false
+  
+###  Non-vector data types
+  Lists - Vectors, but with items of different types
+  Functions - you know ...
+  Dataframes - Tabular data
+
+#### Lists
+```{r}
+list1 <- list(1,2,"Hello","man",TRUE,FALSE)
+typeof(list1)
+length(list1)
+```
+For comparison, a vector with the same data
+```{r}
+vec6 <- c(1,2,"Hello","man",TRUE,FALSE)
+typeof(vec6)
+length(vec6)
+```
+The vector is of type character because vectors can have only one data type,
+text is the most complex one that can incorporate the rest. 
+
+This does not apply to lists!
+
+R converts data types automatically.
+
+#### List of vectors
+R is vectorized, lists are not vectors but the items inside - are!
+
+```{r}
+employee_list <- list(name = "Geo", 
+                      surname = "Naumov", 
+                      age = 36, 
+                      statistics = TRUE,
+                      courses = c(10,11,12),
+                      12345,
+                      "bla bla"
+                      )
+
+print(employee_list)
+```
+Here we have a list of vectors with some named values of different types,
+a vector, and also 2 unnamed items: 12345 and "bla bla".
+
+Items start with $ sign and it can be used to access them.
+
+```{r}
+employee_list$name
+employee_list$statistics
+employee_list$courses
+```
+Another way is by index:
+```{r}
+employee_list[1]
+employee_list[6]
+employee_list[7]
+```
+This is also the way to access unnamed items.
+
+#### Attributes
+Some operations on attributes
+```{r}
+attributes(employee_list)
+
+# Does not work, it's a separate list created by R
+typeof(attributes(employee_list))
+
+# Get the attribute names, as strings in a vector
+attribute_names <- names(employee_list)
+
+# Set attribute name
+attribute_names[6] <- "some_number"
+attribute_names[7] <- "some_text"
+
+# Assign the data back to employee_list because setNames returns a copy
+employee_list <- setNames(employee_list, attribute_names)
+
+attributes(employee_list)
+```
+### Null values
+Assign a null value to the variable z:
+```{r}
+z <- NULL
+typeof(z)
+length(z)
+# z == NULL # Not recommended, you cannot compare nothing to nothing
+is.null(z)  # The correct way
+```
+### NA values
+A single item vector with a value of NA
+```{r}
+x <- NA
+typeof(x)
+length(x)
+is.na(x)
+```
+
+
+
+
+
+
+
+
+
+
+
+
