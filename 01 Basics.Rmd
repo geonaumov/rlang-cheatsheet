@@ -49,8 +49,7 @@ length(hello_str)
 
 ### Combine collections as vectors
 
-DUE TO THIS, A VARIABLE CCANNOT BE CALLED c BECAUSE THAT WILL OVERWRITE THE 
-COLLECTION FUNCTION!!!
+DUE TO THIS, A VARIABLE CCANNOT BE CALLED c BECAUSE THAT WILL OVERWRITE THE COLLECTION FUNCTION!!!
 
 ```{r}
 
@@ -79,12 +78,10 @@ vec4 <- vec1 + vec2
 ```
 A single item vector can also be applied to a larger vector. 
 
-In this case, it will be appended n-times by the same value in order to become 
-as long as the vector we are operating on. Then all values are calculated as in 
-the previous example.
+In this case, it will be appended n-times by the same value in order to become as long as the vector we are operating on. Then all values are calculated as in the previous example.
 
-The example below multiplies everything in vec1 by 2, result is vector of same
-size as vec1
+The example below multiplies everything in vec1 by 2, result is vector of same size as vec1
+
 ```{r}
 vec5 <- vec1 * 2 
 ```
@@ -114,8 +111,7 @@ vec6 <- c(1,2,"Hello","man",TRUE,FALSE)
 typeof(vec6)
 length(vec6)
 ```
-The vector is of type character because vectors can have only one data type,
-text is the most complex one that can incorporate the rest. 
+The vector is of type character because vectors can have only one data type, text is the most complex one that can incorporate the rest. 
 
 This does not apply to lists!
 
@@ -136,8 +132,7 @@ employee_list <- list(name = "Geo",
 
 print(employee_list)
 ```
-Here we have a list of vectors with some named values of different types,
-a vector, and also 2 unnamed items: 12345 and "bla bla".
+Here we have a list of vectors with some named values of different types, a vector, and also 2 unnamed items: 12345 and "bla bla".
 
 Items start with $ sign and it can be used to access them.
 
@@ -191,15 +186,3 @@ typeof(x)
 length(x)
 is.na(x)
 ```
-
-
-
-
-
-
-
-
-
-
-
-
